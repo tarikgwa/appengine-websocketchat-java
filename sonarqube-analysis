@@ -19,7 +19,7 @@ node{
        slackSend baseUrl: 'https://hooks.slack.com/services/',
        channel: '#devops',
        color: 'good', 
-       message: 'SonarQube Analysis Build SUCCESS', 
+       message: 'SonarQube Quality Analysis Build SUCCESS', 
        teamDomain: 'javahomecloud',
        tokenCredentialId: 'slack-notif'
    }
