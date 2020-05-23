@@ -22,7 +22,7 @@ node{
                    slackSend baseUrl: 'https://hooks.slack.com/services/',
                    channel: '#devops',
                    color: 'danger', 
-                   message: 'SonarQube Analysis Failed', 
+                   message: 'SonarQube Quality Analysis Failed', 
                    teamDomain: 'voixlabs',
                    tokenCredentialId: 'slack-notif'
                   error "Pipeline aborted due to quality gate failure: ${qg.status}"
@@ -34,7 +34,7 @@ node{
        slackSend baseUrl: 'https://hooks.slack.com/services/',
                    channel: '#devops',
                    color: 'good', 
-                   message: 'SonarQube Analysis Successed', 
+                   message: 'SonarQube Quality Analysis Successed', 
                    teamDomain: 'voixlabs',
                    tokenCredentialId: 'slack-notif'
    }
