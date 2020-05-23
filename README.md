@@ -1,7 +1,7 @@
 App Engine Java VM Runtime Websocket Chat
 Copyright (C) 2010-2015 Google Inc.
 
-## Sample websocket chat application for use with App Engine Java VM Runtime.
+### Sample websocket chat application for use with App Engine Java VM Runtime.
 
 Requires [Apache Maven](http://maven.apache.org) 3.1 or greater, and
 JDK 7+ in order to run.  This application needs to be deployed to the
