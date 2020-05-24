@@ -8,23 +8,30 @@ node{
       sh "${mvnHome}/bin/mvn package"
    }
    
-    stage('Upload WAR to NEXUS Repository'){
-          steps{  
-             nexusArtifactUploader artifacts: [
-             [
-               artifactId: 'websocketchat',
-               classifier: '',
-               file: 'target/websocketchat-1.0.war',
-               type: 'war'
-             ]
-           ],
-           credentialsId: 'nexus-3',
-           groupId: 'com.google.appengine.demos',
-           nexusUrl: '172.17.0.4',
-           nexusVersion: 'nexus3',
-           protocol: 'http',
-           repository: 'websocketchat-release',
-           version: '1.0'
-               }
-         }
+stage('Upload WAR Project to Nexus Artifact Repository ') {
+    steps {
+      nexusArtifactUploader {
+        nexusVersion('nexus3')
+        protocol('http')
+        nexusUrl('172.17.0.4')
+        groupId('com.google.appengine.demos')
+        version('1.0')
+        repository('websocketchat-release')
+        credentialsId('nexus-3')
+        artifact {
+            artifactId('websocketchat')
+            type('war')
+            classifier('')
+            file('target/websocketchat-1.0.war')
+        }
+        artifact {
+            artifactId('websocketchat')
+            type('war')
+            classifier('')
+            file('target/websocketchat-1.0.war')
+        }
+      }
+    }
+}
+
     }
