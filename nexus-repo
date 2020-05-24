@@ -10,7 +10,7 @@ node{
    
     stage('Upload WAR to NEXUS Repository'){
           steps{  
-               nexusArtifactUploaderartifactId: 'websocketchat',
+               nexusArtifactUploader artifactId: 'websocketchat',
                classifier: '',
                file: 'target/websocketchat-1.0.war',
                type: 'war',
