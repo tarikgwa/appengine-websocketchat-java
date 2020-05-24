@@ -24,7 +24,7 @@ node{
                    color: 'danger', 
                    message: 'SonarQube Quality Analysis Failed', 
                    teamDomain: 'voixlabs',
-                   tokenCredentialId: 'slack-notif'
+                   tokenCredentialId: 'slack-notif',
                    username: 'JENKINS_BOT'
                   error "Pipeline aborted due to quality gate failure: ${qg.status}"
               }
@@ -37,7 +37,7 @@ node{
                    color: 'good', 
                    message: 'SonarQube Quality Analysis Successed', 
                    teamDomain: 'voixlabs',
-                   tokenCredentialId: 'slack-notif'
+                   tokenCredentialId: 'slack-notif',
                    username: 'JENKINS_BOT'
    }
 
