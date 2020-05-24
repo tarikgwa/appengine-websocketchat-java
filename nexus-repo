@@ -8,22 +8,17 @@ node{
       sh "${mvnHome}/bin/mvn package"
    }
    
-    stage('Upload WAR to NEXUS Repository') {
-        steps{
-              artifacts: [
-             [
+    stage('Upload WAR to NEXUS Repository'){
                artifactId: 'websocketchat',
                classifier: '',
                file: 'target/websocketchat-1.0.war',
-               type: 'war'
-             ]
-           ],
-           credentialsId: 'nexus-3',
-           groupId: 'com.google.appengine.demos',
-           nexusUrl: '172.17.0.4',
-           nexusVersion: 'nexus3',
-           protocol: 'http',
-           repository: 'websocketchat-release',
-           version: '1.0'
+               type: 'war',
+               credentialsId: 'nexus-3',
+               groupId: 'com.google.appengine.demos',
+               nexusUrl: '172.17.0.4',
+               nexusVersion: 'nexus3',
+               protocol: 'http',
+               repository: 'websocketchat-release',
+               version: '1.0'
          }
     }
