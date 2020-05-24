@@ -37,6 +37,7 @@ node{
                    message: 'SonarQube Quality Analysis Successed', 
                    teamDomain: 'voixlabs',
                    tokenCredentialId: 'slack-notif'
+                   slackSend username: 'JENKINS_BOT'
    }
 
 }
