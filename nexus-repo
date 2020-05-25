@@ -1,4 +1,4 @@
-lknode{
+node{
    stage('SCM Checkout'){
      git 'https://github.com/tarikgwa/appengine-websocketchat-java.git'
    }
@@ -11,9 +11,7 @@ lknode{
    nexusArtifactUploader artifacts: [[artifactId: 'websocketchat', classifier: '', file: 'target/websocketchat-1.0.war', type: 'war']], 
    credentialsId: 'nexus-3', groupId: 'com.google.appengine.demos', nexusUrl: '172.17.0.3:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 
    'websocketchat-release', version: '1.0'
-   }
-   
-   
+   }  
     
    stage('Slack Notification'){
        slackSend baseUrl: 'https://hooks.slack.com/services/',
