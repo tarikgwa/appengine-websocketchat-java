@@ -9,7 +9,7 @@ node{
    }  
    stage('Upload WAR Project to Nexus Artifact Repository ') {
    nexusArtifactUploader artifacts: [[artifactId: 'websocketchat', classifier: '', file: 'target/websocketchat-1.0.war', type: 'war']], 
-   credentialsId: 'nexus-3', groupId: 'com.google.appengine.demos', nexusUrl: '172.17.0.4', nexusVersion: 'nexus3', protocol: 'http', repository: 
+   credentialsId: 'nexus-3', groupId: 'com.google.appengine.demos', nexusUrl: '172.17.0.3', nexusVersion: 'nexus3', protocol: 'http', repository: 
    'websocketchat-release', version: '1.0'
 }
    }
