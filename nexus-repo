@@ -13,21 +13,6 @@ node{
    'websocketchat-release', version: '1.0'
    }
    
-      stage("Nexus Artifact repository Status Check"){
-          timeout(time: 1, unit: 'HOURS') {
-              def na = nexusArtifactUploader()
-              if (na.status != 'OK') {
-                   slackSend baseUrl: 'https://hooks.slack.com/services/',
-                   channel: '#devops',
-                   color: 'danger', 
-                   message: 'Artifact repository Failed', 
-                   teamDomain: 'voixlabs',
-                   credentialsId: 'nexus-3',
-                   username: 'JENKINS_BOT'
-                  error "Pipeline aborted due to quality gate failure: ${qg.status}"
-              }
-          }
-      }    
    
    stage('Slack Notification'){
        slackSend baseUrl: 'https://hooks.slack.com/services/',
