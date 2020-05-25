@@ -14,13 +14,28 @@ node{
    }
    
    
+      stage("Nexus Artifact repository Status Check"){
+          timeout(time: 1, unit: 'HOURS') {
+              def na = nexusArtifactUploader()
+              if (na.status != 'OK') {
+                   slackSend baseUrl: 'https://hooks.slack.com/services/',
+                   channel: '#devops',
+                   color: 'danger', 
+                   message: 'Artifact repository Failed', 
+                   teamDomain: 'voixlabs',
+                   tokenCredentialId: 'slack-notif',
+                   username: 'JENKINS_BOT'
+                  error "Pipeline aborted due to quality gate failure: ${qg.status}"
+              }
+          }
+      }    
    stage('Slack Notification'){
        slackSend baseUrl: 'https://hooks.slack.com/services/',
                    channel: '#devops',
                    color: 'good', 
                    message: 'Nexus Artifact Repository Upload Successed', 
                    teamDomain: 'voixlabs',
-                   credentialsId: 'nexus-3',
+                   tokenCredentialId: 'slack-notif',
                    username: 'JENKINS_BOT'
    }
 
