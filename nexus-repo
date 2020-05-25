@@ -17,7 +17,7 @@ node{
        slackSend baseUrl: 'https://hooks.slack.com/services/',
                    channel: '#devops',
                    color: 'good', 
-                   message: 'Nexus Artifact Repository Upload ccessed', 
+                   message: 'Nexus Artifact Repository Upload ${JOB_NAME} Successed', 
                    teamDomain: 'voixlabs',
                    tokenCredentialId: 'slack-notif',
                    username: 'JENKINS_BOT'
